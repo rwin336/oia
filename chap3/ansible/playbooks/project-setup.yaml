@@ -1,5 +1,8 @@
 ---
 
+- name: Setup projects and users
+  hosts: localhost
+  roles:
+    - { role: "os-project" }
 
-- include: os-project.yaml
   

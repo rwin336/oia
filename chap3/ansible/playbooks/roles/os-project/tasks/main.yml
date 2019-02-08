@@ -1,2 +1,4 @@
 ---
 # tasks file for os-project
+
+- include: project-setup.yaml

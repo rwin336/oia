@@ -1,0 +1,4 @@
+---
+  
+- debug:
+    msg: "The openrc file is: {{ OPENRC_FILE }}"
