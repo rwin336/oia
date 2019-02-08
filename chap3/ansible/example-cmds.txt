@@ -4,9 +4,9 @@ Notes:
   1. Make sure your ssh key is in the ~/.ssh/authorized_keys file prior to runing commands
 
 
-ansible -i testbeds/emc-testbed.ini mgmt-node -vvvv -m ping
-ansible -i testbeds/emc-testbed.ini storage,control -m ping
-ansible -i testbeds/emc-testbed.ini compute -m ping
+$ ansible -i testbeds/emc-testbed.ini mgmt-node -vvvv -m ping
+$ ansible -i testbeds/emc-testbed.ini storage,control -m ping
+$ ansible -i testbeds/emc-testbed.ini compute -m ping
 
 
 - Use ansible-glaxey to create roles
@@ -18,3 +18,15 @@ ansible -i testbeds/emc-testbed.ini compute -m ping
     $ cd os-project/
     $ ls
       defaults  files  handlers  meta  README.md  tasks  templates  tests  vars
+
+
+- Run basic playbook
+
+
+    cd to playbooks directory
+    $ pwd
+      /root/oia/oia/chap3/ansible/playbooks
+
+    $ ansible-playbook -i ../testbeds/emc-testbed.ini --extra @../vars/oia-chap3-vars.yaml project-setup.yaml
+
+  
