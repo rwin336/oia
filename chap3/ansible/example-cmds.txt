@@ -1,0 +1,20 @@
+Commands used during development
+
+Notes:
+  1. Make sure your ssh key is in the ~/.ssh/authorized_keys file prior to runing commands
+
+
+ansible -i testbeds/emc-testbed.ini mgmt-node -vvvv -m ping
+ansible -i testbeds/emc-testbed.ini storage,control -m ping
+ansible -i testbeds/emc-testbed.ini compute -m ping
+
+
+- Use ansible-glaxey to create roles
+
+    $ ansible-galaxy init os-project
+      - os-project was created successfully
+    $ ls
+      os-project
+    $ cd os-project/
+    $ ls
+      defaults  files  handlers  meta  README.md  tasks  templates  tests  vars

@@ -1,0 +1,5 @@
+
+
+OPENRC_FILE: /root/openstack-configs/openrc
+ADMIN_TENANT_NAME: admin
+ADMIN_USER: admin

@@ -1,0 +1,82 @@
+Book:		Openstack in Action
+Author: 	V.K. Cody Bumgardner
+Chapter: 	3
+
+Notes:
+  1. Using openstack command line interface instead of indivual component CLIs
+
+
+source openrc admin admin
+
+# openstack --version
+openstack 3.14.2
+(Queens)
+
+
+--------------------------------------------------------------------------------
+Section 3.3.2
+
+# openstack project create General
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description |                                  |
+| domain_id   | default                          |
+| enabled     | True                             |
+| id          | 50acf2e7b73e426880f0b5321ff89412 |
+| is_domain   | False                            |
+| name        | General                          |
+| parent_id   | default                          |
+| tags        | []                               |
++-------------+----------------------------------+
+
+# openstack project list 
++----------------------------------+---------+
+| ID                               | Name    |
++----------------------------------+---------+
+| 50acf2e7b73e426880f0b5321ff89412 | General |
+| 93d4a1beccbf4d2b91b58ceb7b57dd4a | admin   |
+| 9fc3b62fdd96446b8b538d4283db642f | service |
++----------------------------------+---------+
+
+# openstack role list
++----------------------------------+------------------+
+| ID                               | Name             |
++----------------------------------+------------------+
+| 8557155cec9e45b28fd1a563d5a69a91 | admin            |
+| 9fe2ff9ee4384b1894a90878d3e92bab | _member_         |
+| a8b70c2f9fea40bfbf2984652ad80f67 | heat_stack_user  |
+| b58aff78d0e448c5ba53c441096d3b71 | heat_stack_owner |
++----------------------------------+------------------+
+
+
+# openstack user create --project General --email johndoe@testco.com --password openstack1 johndoe
++---------------------+----------------------------------+
+| Field               | Value                            |
++---------------------+----------------------------------+
+| default_project_id  | 50acf2e7b73e426880f0b5321ff89412 |
+| domain_id           | default                          |
+| email               | johndoe@testco.com               |
+| enabled             | True                             |
+| id                  | 792473148a1541d7ab07ccaf3b6ca724 |
+| name                | johndoe                          |
+| options             | {}                               |
+| Password_expires_at | None                             |
++---------------------+----------------------------------+
+
+
+# openstack user list
++----------------------------------+-------------------+
+| ID                               | Name              |
++----------------------------------+-------------------+
+| 11c02f058b694159a6bb01440d409d79 | cloudpulse        |
+| 3fe8f34a02d346af934d25d72849aa80 | heat              |
+| 792473148a1541d7ab07ccaf3b6ca724 | johndoe           |
+| 9ac59934f7c9449db256ff0c6d85a78b | nova              |
+| c1a0cc55624d4c488f17dec3063044b9 | neutron           |
+| c77e8c0db2cb4735a7042a3f5a881bf0 | placement         |
+| d1df2c94ccaf4d8c8ccc17431d33e194 | glance            |
+| d797805ae13c4f59888fade11969f939 | heat_domain_admin |
+| f0acf65087dc43a79ff193d4796c699a | admin             |
+| fa2c6abf8d5c4ed4b0eced894ded083c | cinder            |
++----------------------------------+-------------------+
