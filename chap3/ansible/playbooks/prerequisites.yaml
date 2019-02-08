@@ -1,0 +1,6 @@
+---
+
+- name: Install Mercury pre-reqs
+  hosts: localhost
+  roles:
+    - { role: "mercury-prerequisite" , when: POD_VENDOR is defined and POD_VENDOR == "Cisco-Mercury" }

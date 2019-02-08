@@ -1,0 +1,7 @@
+---
+
+- name: Install python shade
+  pip:
+    name: shade
+    state: forcereinstall
+  become: True

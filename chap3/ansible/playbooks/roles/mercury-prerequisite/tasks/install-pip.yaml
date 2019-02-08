@@ -1,0 +1,14 @@
+---
+
+- name: Install shade rpm from a remote repo
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+    update_cache: yes
+  become: True
+
+- name: Install python-pip
+  yum:
+    name: python-pip
+    state: latest
+  become: True

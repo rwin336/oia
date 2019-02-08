@@ -4,5 +4,3 @@
   hosts: localhost
   roles:
     - { role: "os-project" }
-
-  

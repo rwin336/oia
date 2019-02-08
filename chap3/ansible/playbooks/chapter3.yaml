@@ -1,0 +1,9 @@
+---
+
+- include: prerequisites.yaml
+- include: project-setup.yaml
+
+#  roles/users
+#  flavors
+#  images
+#  project-networks
