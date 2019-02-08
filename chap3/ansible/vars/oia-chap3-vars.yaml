@@ -1,7 +1,9 @@
 
-
+POD_VENDOR: Cisco-Mercury
 OPENRC_FILE: /root/openstack-configs/openrc
 ADMIN_TENANT_NAME: admin
 ADMIN_USER: admin
 PROJECT_NAME: General-ansible
+PROJECT_DESCRIPTION: "Test project for Openstack In Action book"
+PROJECT_DOMAIN_ID: default
 USER_NAME: johndoe-ansible

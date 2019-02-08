@@ -2,3 +2,23 @@
   
 - debug:
     msg: "The openrc file is: {{ OPENRC_FILE }}"
+
+- name: Get list of clouds that do not support security groups
+  os_client_config:
+
+- debug:
+    var: "{{ item }}"
+  with_items: "{{ openstack.clouds | rejectattr('secgroup_source', 'none') | list }}"
+
+  # Create a project
+- os_project:
+    endpoint_type: admin
+    state: present
+    name: "{{ PROJECT_NAME }}"
+    description: "{{ PROJECT_DESCRIPTION }}"
+    domain_id: "{{ PROJECT_DOMAIN_ID }}"
+    enabled: True
+  register: test_project
+
+- debug:
+    msg: "Test Project Name: {{ test_project.project.name }}, ID: {{ test_project.project.id }}"

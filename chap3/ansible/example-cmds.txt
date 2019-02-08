@@ -30,3 +30,44 @@ $ ansible -i testbeds/emc-testbed.ini compute -m ping
     $ ansible-playbook -i ../testbeds/emc-testbed.ini --extra @../vars/oia-chap3-vars.yaml project-setup.yaml
 
   
+
+
+  yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  yum -y update
+  yum -y install python-pip
+  pip install --upgrade pip
+  pip install --ignore-install shade
+
+{'project': {'is_enabled': True,
+             'is_domain': False,
+	     'description': 'Test project for Openstack In Action book',
+	     'tags': [],
+	     'domain_id': 'default',
+	     'enabled': True,
+	     'properties': {
+	        'tags': []
+	      },
+	      'parent_id': 'default',
+	      'location': {
+	         'project': {
+		    'id': 'default',
+		    'domain_name': None,
+		    'name': None, 'domain_id':
+		    'default'
+		  },
+		 'cloud': 'envvars',
+		 'region_name': None, 'zone': None
+	       },
+	       'id': 'ba7ec77ad2e54256bdc634acfe6e5059',
+	       'name': u'General-ansible'
+	     },
+	     'changed': False
+}
+
+
+
+ansible 2.2.1.0 has requirement jinja2<2.9, but you'll have jinja2 2.10 which is incompatible.
+Installing collected packages: ipaddress, os-service-types, keystoneauth1, PyYAML, openstacksdk
+  Found existing installation: ipaddress 1.0.16
+Cannot uninstall 'ipaddress'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+[
