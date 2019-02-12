@@ -30,7 +30,8 @@
     msg: "Network facts: {{ item['router:external'] }}"
   with_items: "{{ net_facts.ansible_facts.openstack_networks }}"
 
-- set_fact:
+- name: Get the name of the external network
+  set_fact:
     ext_net: "{{ item.name }}"
   with_items: "{{ net_facts.ansible_facts.openstack_networks }}"
   when: "{{ item['router:external'] }}"
