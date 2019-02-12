@@ -1,12 +1,12 @@
 ---
-
     # Create a project
-  - os_project:
+  - name: Creating Test Project
+    os_project:
       endpoint_type: admin
       state: present
-      name: "{{ PROJECT_NAME }}"
-      description: "{{ PROJECT_DESCRIPTION }}"
-      domain_id: "{{ PROJECT_DOMAIN_ID }}"
+      name: "{{ TEST_PROJECT_NAME }}"
+      description: "{{ TEST_PROJECT_DESCRIPTION }}"
+      domain_id: "{{ TEST_PROJECT_DOMAIN_ID }}"
       enabled: True
     register: test_project
 

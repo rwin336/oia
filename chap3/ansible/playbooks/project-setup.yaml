@@ -1,20 +1,9 @@
 ---
-- hosts: mgmt-node
+- hosts: localhost
   become: true
 
   roles:
     - os-project
-
-  environment:
-    OS_CACERT: /root/openstack-configs/haproxy-ca.crt
-    OS_AUTH_URL: https://172.29.86.27:5000/v3
-    OS_USERNAME: admin
-    OS_PASSWORD: 18Ycd4Le18zccFFa
-    OS_REGION_NAME: RegionOne
-    OS_PROJECT_NAME: admin
-    OS_PROJECT_DOMAIN_NAME: default
-    OS_USER_DOMAIN_NAME: default
-    OS_IDENTITY_API_VERSION: 3
 
 
 

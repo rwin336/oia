@@ -2,3 +2,7 @@
 # tasks file for os-project
 
 - include: project-setup.yaml
+
+- include: user-role.yaml
+
+- include: network.yaml

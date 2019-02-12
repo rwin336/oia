@@ -1,0 +1,18 @@
+---
+
+# Creating user via os_user is broken
+#- name:  Creating user for test project
+#  os_user:
+#    state: present
+#    name: "{{ TEST_USER_NAME }}"
+#    password: "{{ TEST_USER_PASSWORD }}"
+#    email: "{{ TEST_USER_EMAIL }}"
+#    default_project: "{{ TEST_PROJECT_NAME }}"
+
+- name: Assigning roles to user
+  os_user_role:
+    user: "{{ TEST_USER_NAME }}"
+    role: "{{ item }}"
+    project: "{{ TEST_PROJECT_NAME }}"
+  with_items:
+    - "{{ TEST_USER_ROLES }}"
