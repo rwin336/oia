@@ -1,6 +1,6 @@
 ---
 
-- name: Install shade rpm from a remote repo
+- name: Update remote repos for fedoraproject
   yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     state: present
@@ -10,5 +10,11 @@
 - name: Install python-pip
   yum:
     name: python-pip
+    state: latest
+  become: True
+
+- name: Install python-virtualenv
+  pip:
+    name: virtualenv
     state: latest
   become: True
