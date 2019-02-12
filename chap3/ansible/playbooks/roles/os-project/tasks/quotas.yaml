@@ -1,0 +1,10 @@
+---
+
+- name: Gather project quota information
+  os_quota:
+    name: "{{ TEST_PROJECT_NAME }}"
+    cores: 20
+  register: project_quotas
+
+- debug:
+    msg: "Project quotas: {{ project_quotas }}"
