@@ -1,0 +1,5 @@
+---
+
+- name: Install baseline packages
+  roles:
+    - { role: "node-prep" }
