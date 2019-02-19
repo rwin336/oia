@@ -1,0 +1,9 @@
+Commands used during development
+
+Notes:
+  1. Make sure your ssh key is in the ~/.ssh/authorized_keys file prior to runing commands
+  2. export ANSIBLE_HOST_KEY_CHECKING=False
+  3. source ~/openstack-configs/openrc
+
+
+$ ansible -i testbeds/emc-testbed.ini mgmt-node -vvvv -m ping

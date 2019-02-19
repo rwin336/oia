@@ -1,0 +1,17 @@
+---
+
+- name: Install Python MySQL DB
+  apt:
+    name: python-mysqldb
+    state: latest
+
+- name: Install mysql-server
+  apt:
+    name: mysql-server
+    state: latest
+
+# Conf mysql to bind address 0.0.0.0
+#
+# sudo service mysql restart
+# sudo service mysql status
+# mysqladmin -u root -h localhost -p status

@@ -1,0 +1,21 @@
+
+
+After Ubuntu 18.04 LTS servers booted
+
+- sudo apt-get -y update
+- sudo apt-get -y upgrade
+- sudo reboot
+- Make sure the name found in /etc/hostname is what is used 
+  in /etc/hosts
+     sudo -i vi /etc/hosts
+
+- sudo apt-get -y install rabbitmq-server
+- sudo rabbitmqctl change_password guest openstack1
+  Changing password for user "guest"
+- sudo rabbitmqctl status
+  Status of node 'rabbit@os-controller'
+  [{pid,1186}, ..... ]
+
+
+
+

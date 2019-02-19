@@ -1,0 +1,24 @@
+---
+
+- name: Verify hostname in /etc/hosts
+  debug:
+    msg: "Hostname: {{ ansible_hostname }}"
+
+- name: Verify hostname in /etc/hosts
+  shell: grep "{{ ansible_hostname }}" /etc/hosts
+  register: hostname_status
+
+- name: Hostname status
+  debug:
+    msg: "Hostname status: {{ hostname_status }}" 
+
+- name: Install RabbitMQ
+  apt:
+    name: rabbitmq-server
+    state: latest
+
+- name: Update guest password for RabbitMQ
+  rabbitmq_user:
+    user: guest
+    password: openstack1
+    state: present
