@@ -1,0 +1,14 @@
+---
+# tasks file for os_setup
+
+- include: image-setup.yaml
+
+#- include: project-setup.yaml
+
+#- include: quotas-setup.yaml
+
+#- include: user-role-setup.yaml
+
+#- include: network-setup.yaml
+
+

@@ -1,0 +1,60 @@
+
+Book:		Openstack in Action
+Author: 	V.K. Cody Bumgardner
+Chapter: 	3
+
+Notes:
+  1. Using openstack command line interface instead of indivual component CLIs
+
+
+source openrc admin admin
+
+$ openstack --version
+openstack 3.2.1
+
+
+-----------------------------------------------------------------------------------
+Command summary
+
+$ wget http://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img  
+$ openstack image create --file bionic-server-cloudimg-amd64.img ubuntu-lts-18.04
+$ openstack image list
+-----------------------------------------------------------------------------------
+
+
+openstack image create --file bionic-server-cloudimg-amd64.img ubuntu-lts-18.04
++------------------+------------------------------------------------------+
+| Field            | Value                                                |
++------------------+------------------------------------------------------+
+| checksum         | 88c7a9ba68ff3c0d934207e8787ac1b4                     |
+| container_format | bare                                                 |
+| created_at       | 2019-02-26T00:15:04Z                                 |
+| disk_format      | raw                                                  |
+| file             | /v2/images/425ee504-39c5-443a-b2c1-4e4123ab05be/file |
+| id               | 425ee504-39c5-443a-b2c1-4e4123ab05be                 |
+| min_disk         | 0                                                    |
+| min_ram          | 0                                                    |
+| name             | ubuntu-lts-18.04                                     |
+| owner            | 865a8c529be64a948efe2e006dd1d4aa                     |
+| protected        | False                                                |
+| schema           | /v2/schemas/image                                    |
+| size             | 343474176                                            |
+| status           | active                                               |
+| tags             |                                                      |
+| updated_at       | 2019-02-26T00:15:11Z                                 |
+| virtual_size     | None                                                 |
+| visibility       | private                                              |
++------------------+------------------------------------------------------+
+[root@skull-mgmt images]# openstack image list
++--------------------------------------+------------------+--------+
+| ID                                   | Name             | Status |
++--------------------------------------+------------------+--------+
+| 425ee504-39c5-443a-b2c1-4e4123ab05be | ubuntu-lts-18.04 | active |
+| 7baf4ee5-8c68-4423-8844-1c9c7712ef29 | RHEL-guest-image | active |
++--------------------------------------+------------------+--------+
+bionic-server-cloudimg-amd64.img  
+
+
+
+
+

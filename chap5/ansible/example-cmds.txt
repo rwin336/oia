@@ -4,6 +4,27 @@ Notes:
   1. Make sure your ssh key is in the ~/.ssh/authorized_keys file prior to runing commands
   2. export ANSIBLE_HOST_KEY_CHECKING=False
   3. source ~/openstack-configs/openrc
+  4. Install shade on Mercury mgmt node
 
 
 $ ansible -i testbeds/emc-testbed.ini mgmt-node -vvvv -m ping
+
+----------------------------------------------------------
+Installing shade
+
+  $ sudo yum install python-virtualenv -y
+  $ virtualenv --system-site-packages shade
+  $ source shade/bin/activate
+  $(shade) pip install setuptools --upgrade
+  $(shade) pip install shade
+  $(shade) source ~/openstack-configs/openrc
+
+   Run the playbooks
+
+----------------------------------------------------------
+Running basic playbook
+  enable shade venv
+  source openrc
+  cd $ws
+
+  $ ansible-playbook chapter5.yaml

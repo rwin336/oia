@@ -1,4 +1,13 @@
----
+###############################################################################
+#
+#
+#
+###############################################################################
 
-- include: prerequisites.yaml
+- name: Chapter 5 Openstack In Action
+  hosts: localhost
+  user: root
+  become: yes
+  roles:
+    - { role: "os_setup" }
 

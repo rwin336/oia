@@ -1,0 +1,71 @@
+---
+
+- name: Gather list of openstack images
+  shell: openstack image list  --format json
+  register: image_output
+
+- set_fact:
+    image_list: "{{ image_output.stdout | from_json }}"
+    image_needed: True
+    image_available: False
+
+- debug:
+    msg: "Image list: {{ image_list }}"
+
+- name: Determine if image is needed
+  set_fact:
+    image_needed: False
+    image_available: True
+  with_items:
+    - "{{ image_list }}"
+  when:
+    - '"{{ item.Name }}" == "ubuntu-lts-18.04"'
+
+- name: Get Ubuntu image from cloud-images
+  get_url:
+    url: http://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img
+    dest: /tmp/bionic-server-cloudimg-amd64.img
+  when: image_needed
+
+- name: Create Ubuntu image in glance
+  shell: openstack image create --file /tmp/bionic-server-cloudimg-amd64.img ubuntu-lts-18.04
+  when: image_needed
+
+- name: Verify image was created
+  shell: openstack image list  --format json
+  register: post_image_output
+
+- set_fact:
+    post_image_list: "{{ post_image_output.stdout | from_json }}"
+
+- debug:
+    msg: "Image dictionary: {{ post_image_list }}"
+
+- name: Verify image available
+  set_fact:
+    image_available: True
+  with_items:
+    - "{{ post_image_list }}"
+  when:
+    - '"{{ item.Name }}" == "ubuntu-lts-18.04"'
+
+- name: Image install result
+  fail:
+    msg: "Ubuntu image is not available for creating VMs"
+  when: not image_available
+
+#################################################################
+# The above code is all because the os_image doesn't work
+#
+# Requires shade for some reason
+#  - fails even after installing shade
+#
+#- name: Create Ubuntu image in glance
+#  os_image:
+#    name: ubuntu-lts-18.04
+#    state: present
+#    filename: /tmp/bionic-server-cloudimg-amd64.img
+#    properties:
+#      cpu_arch: x86_64
+#      distro: ubuntu
+    
